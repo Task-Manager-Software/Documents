@@ -1,0 +1,45 @@
+@startuml
+title Relationships - Class Diagram
+
+class Account {
+    
+}
+
+class Project {
+    +Text Title
+}
+
+class Task {
+    +Text Title
+    +Bool Done
+    +Bool MyDay
+    +Bool Important
+    +DateTime? Reminder
+    +Date? Duedate
+    +Enum Repeat
+    +Int RepeatFrequency
+    +Int? SelectedWeekDays
+    +Text Note?
+    +Assignee AssignedTo
+}
+
+Class Step {
+    +Text Title
+    +Bool Done
+}
+
+Class File {
+    +Text Filename
+}
+
+Class Assignee {
+}
+
+Account "1" *-down- "many" Project
+Assignee -up-> Account
+Project "1" *-down- "many" Task
+Task "1" *-down- "many" File
+Task "1" *-down- "many" Step
+Task -> Assignee
+
+@enduml
