@@ -2,44 +2,49 @@
 title Relationships - Class Diagram
 
 class Account {
-    
+    +Text FullName    
 }
 
 class Project {
     +Text Title
+    +Bool ShowCompletedTasks
 }
 
 class Task {
+    +Account AssignedTo
     +Text Title
     +Bool Done
     +Bool MyDay
     +Bool Important
     +DateTime? Reminder
     +Date? Duedate
-    +Enum Repeat
-    +Int RepeatFrequency
-    +Int? SelectedWeekDays
-    +Text Note?
-    +Assignee AssignedTo
+    +RepeatType Repeat
+    +Byte? SelectedWeekDay
+    +Text Note
 }
 
-Class Step {
+class Step {
     +Text Title
     +Bool Done
 }
 
-Class File {
+class File {
     +Text Filename
 }
 
-Class Assignee {
+enum RepeatType{
+    Daily
+    Weekdays
+    Weekly
+    Monthly
+    Yearly
 }
 
 Account "1" *-down- "many" Project
-Assignee -up-> Account
 Project "1" *-down- "many" Task
+Account "1" *-down- "1" Task
 Task "1" *-down- "many" File
 Task "1" *-down- "many" Step
-Task -> Assignee
+Task -> RepeatType
 
 @enduml
