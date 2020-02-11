@@ -16,8 +16,8 @@ class Task {
     +Bool Done
     +Bool MyDay
     +Bool Important
-    +DateTime? Reminder
-    +Date? Duedate
+    +DateTime? RemindDate
+    +Date? DueDate
     +RepeatType Repeat
     +Byte? SelectedWeekDay
     +Text Note
