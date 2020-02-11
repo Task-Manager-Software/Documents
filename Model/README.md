@@ -1,2 +1,2 @@
-![](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/TaskManagerSoftware/Documents/master/Model/Model.puml)
+![](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/TaskManagerSoftware/Documents/master/Model/Model.puml&refresh=1)
  
