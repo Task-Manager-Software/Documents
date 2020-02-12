@@ -10,23 +10,30 @@ class Project {
     +Bool ShowCompletedTasks
 }
 
-class SharedAccount {
-    +Account ShareWithAccount
+class AccountProject {
+    +Account Account
+    +Project Project
+    +Bool IsAccepted
+    +Bool IsOwner
+}
+
+class AccountTask {
+    +Account Account
+    +Task Task
     +Bool IsAccepted
 }
 
+
 class Task {
-    +Account AssignedTo
     +Text Title
-    +Bool Done
-    +Bool MyDay
-    +Bool Important
+    +Bool IsDone
+    +Bool IsMyDay
+    +Bool IsImportant
     +DateTime? RemindDate
     +Date? DueDate
     +RepeatType Repeat
     +Byte? SelectedWeekDay
     +Text Note
-    +Account? AssignedTo 
 }
 
 class Step {
@@ -46,13 +53,16 @@ enum RepeatType{
     Yearly
 }
 
-Account "1" *-down- "many" Project
+Account "1" *-down- "1..many" AccountProject
+Project "1" *-up- "1..many" AccountProject
+
+Account "1" *-down- "0..many" AccountTask
+Task    "1" *-up- "0..many" AccountTask
+
 Project "1" *-down- "0..many" Task
-Project "1" *-down- "0..many" SharedAccount
-Account "1" *-down- "1" Task
+
 Task "1" *-down- "0..many" File
 Task "1" *-down- "0..many" Step
 Task -> RepeatType
-SharedAccount -> Account
 
 @enduml
