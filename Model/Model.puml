@@ -10,14 +10,14 @@ class Project {
     +Bool ShowCompletedTasks
 }
 
-class AccountProject {
+class ProjectContributor {
     +Account Account
     +Project Project
     +Bool IsAccepted
     +Bool IsOwner
 }
 
-class AccountTask {
+class TaskContributor {
     +Account Account
     +Task Task
     +Bool IsAccepted
